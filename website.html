@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AETHER // DYNAMICS - Next-Generation Luxury Technology & Innovation Ecosystem. Ultra-modern 3D interactive experience featuring quantum neural architectures, aerospace mechanics, and luxury design.">
+  <meta name="keywords" content="Luxury Tech, Three.js, 3D Website, Quantum Computing, Hypercar, Aerospace, Innovation, GSAP, WebGL">
+  <meta name="theme-color" content="#03060d">
+  <title>AETHER // DYNAMICS — Luxury Technology & Innovation</title>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5' fill='none' stroke='%2300f0ff' stroke-width='8'/><circle cx='50' cy='50' r='18' fill='%2300f0ff'/></svg>">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Three.js & Libraries from Reliable Fast CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+
+  <!-- Custom Glowing Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Ambient Cyber Overlays -->
+  <div class="cyber-grid-overlay"></div>
+  <div class="ambient-scanline"></div>
+
+  <!-- Cinematic Preloader -->
+  <div id="preloader">
+    <div class="loader-emblem">
+      <div class="loader-ring"></div>
+      <div class="loader-ring-inner"></div>
+      <div class="loader-core"></div>
+    </div>
+    <div class="loader-brand">AETHER // DYNAMICS</div>
+    <div class="loader-progress-bar-wrap">
+      <div class="loader-progress-bar"></div>
+    </div>
+    <div class="loader-status">INITIALIZING QUANTUM CORE...</div>
+  </div>
+
+  <!-- Fixed Top HUD Navigation -->
+  <header class="site-header">
+    <a href="#hero" class="brand-container">
+      <div class="brand-emblem">
+        <div class="emblem-ring"></div>
+        <div class="emblem-core"></div>
+      </div>
+      <div class="brand-text">
+        AETHER <span class="brand-badge">v4.8 QUANTUM</span>
+      </div>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link active">Genesis</a></li>
+        <li><a href="#features" class="nav-link">Pillars</a></li>
+        <li><a href="#showcase" class="nav-link">Artifact Lab</a></li>
+        <li><a href="#stats" class="nav-link">Telemetry</a></li>
+        <li><a href="#testimonials" class="nav-link">Vanguard</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- Web Audio API Synthesizer Toggle -->
+      <button class="audio-btn" id="audio-toggle-btn" title="Toggle Procedural Audio Engine">
+        <div class="audio-bars">
+          <div class="audio-bar"></div>
+          <div class="audio-bar"></div>
+          <div class="audio-bar"></div>
+          <div class="audio-bar"></div>
+        </div>
+        <span id="audio-toggle-label">AUDIO // OFF</span>
+      </button>
+
+      <div class="btn-telemetry">
+        <span class="status-dot"></span>
+        <span>SYS // OPTIMAL</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION: 3D Holographic Globe & Skyline
+         ========================================================================== -->
+    <section class="hero-section" id="hero">
+      <div id="hero-canvas-container">
+        <canvas id="hero-canvas"></canvas>
+      </div>
+
+      <div class="hero-vignette"></div>
+
+      <div class="hero-content">
+        <div class="hero-kicker">
+          <span class="hero-kicker-icon"></span>
+          <span class="hero-kicker-text">AETHER GLOBAL SUMMIT 2026 // GENESIS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Shaping the Future <br>
+          <span class="hero-title-gradient">With Innovation</span>
+        </h1>
+
+        <p class="hero-description">
+          Pioneering the convergence of 1,024-qubit neural architectures, aero-acoustic metamaterials, and autonomous hyper-mobility. Engineered with surgical luxury aesthetics for those who command the next century.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#showcase" class="btn-primary">
+            <span>Initialize Lab</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#features" class="btn-secondary">
+            <span>Explore Architecture</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-hud-bottom">
+        <div class="hud-specs-grid">
+          <div class="hud-spec-item">
+            <span class="hud-spec-label">Synaptic Latency</span>
+            <span class="hud-spec-value">0.08 ms</span>
+          </div>
+          <div class="hud-spec-item">
+            <span class="hud-spec-label">Neural Coherence</span>
+            <span class="hud-spec-value">99.999%</span>
+          </div>
+          <div class="hud-spec-item">
+            <span class="hud-spec-label">Quantum State</span>
+            <span class="hud-spec-value">CRYOGENIC</span>
+          </div>
+        </div>
+
+        <a href="#features" class="scroll-indicator">
+          <span class="scroll-text">Scroll To Engage</span>
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FEATURES SECTION: 3D Floating Interactive Cards
+         ========================================================================== -->
+    <section class="features-section" id="features">
+      <div class="section-header">
+        <div class="section-tag">// FOUNDATIONAL ARCHITECTURE</div>
+        <h2 class="section-title">Architected For Supremacy</h2>
+        <p class="section-subtitle">
+          Engineered from first principles: four revolutionary technologies setting unprecedented benchmarks in aerospace compute and neural mobility.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-card-inner">
+            <div class="feature-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            </div>
+            <span class="feature-badge">PILLAR 01 // QUANTUM</span>
+            <h3 class="feature-title">Quantum Neural Mesh</h3>
+            <p class="feature-desc">
+              1,024-qubit crystalline topological array maintaining quantum superposition across dynamic ambient electromagnetic environments without cryostat leakage.
+            </p>
+            <div class="feature-metric-row">
+              <span class="feature-metric-label">Array Density</span>
+              <span class="feature-metric-val">1.2 TB / cm³</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-card-inner">
+            <div class="feature-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83M16.62 12l-5.74 9.94"/></svg>
+            </div>
+            <span class="feature-badge">PILLAR 02 // AERO</span>
+            <h3 class="feature-title">Aero-Acoustic Metamaterials</h3>
+            <p class="feature-desc">
+              Zero-drag hyper-laminar skin engineered with programmable ionic boundary-layer micro-deflectors for virtually silent hypersonic velocity profiles.
+            </p>
+            <div class="feature-metric-row">
+              <span class="feature-metric-label">Drag Coefficient</span>
+              <span class="feature-metric-val">0.12 Cd</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-card-inner">
+            <div class="feature-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            </div>
+            <span class="feature-badge">PILLAR 03 // OPTICS</span>
+            <h3 class="feature-title">Photonic Optical Lattice</h3>
+            <p class="feature-desc">
+              Sub-picosecond terahertz optical interconnects replacing copper circuitry with coherent sapphire light guides, achieving lossless data throughput.
+            </p>
+            <div class="feature-metric-row">
+              <span class="feature-metric-label">Bus Throughput</span>
+              <span class="feature-metric-val">400 Tbps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-card-inner">
+            <div class="feature-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <span class="feature-badge">PILLAR 04 // SYNAPSE</span>
+            <h3 class="feature-title">Autonomous Synapse OS</h3>
+            <p class="feature-desc">
+              Deterministic real-time microkernel featuring predictive quantum hazard modeling and sub-millisecond neurological feedback loops.
+            </p>
+            <div class="feature-metric-row">
+              <span class="feature-metric-label">Reflex Speed</span>
+              <span class="feature-metric-val">0.08 ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SHOWCASE SECTION: Interactive 3D Product Lab
+         ========================================================================== -->
+    <section class="showcase-section" id="showcase">
+      <div class="section-header">
+        <div class="section-tag">// INTERACTIVE 3D ARTIFACT LAB</div>
+        <h2 class="section-title">Engineering Benchmark</h2>
+        <p class="section-subtitle">
+          Directly manipulate our active production prototypes. Inspect internal mechanics, cycle lighting environments, and deconstruct component assemblies.
+        </p>
+      </div>
+
+      <div class="showcase-stage-container">
+        <!-- Left: Product Switcher & Telemetry -->
+        <div class="showcase-sidebar">
+          <div>
+            <div class="product-selector-list">
+              <div class="product-nav-item active" data-index="0">
+                <div class="product-nav-info">
+                  <span class="product-nav-code">SYS-Q88</span>
+                  <span class="product-nav-name">Hyperdrive Core</span>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <div class="product-nav-item" data-index="1">
+                <div class="product-nav-info">
+                  <span class="product-nav-code">SYN-N04</span>
+                  <span class="product-nav-name">Neural Visor</span>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+
+              <div class="product-nav-item" data-index="2">
+                <div class="product-nav-info">
+                  <span class="product-nav-code">AERO-X9</span>
+                  <span class="product-nav-name">Chassis Chip</span>
+                </div>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+              </div>
+            </div>
+
+            <!-- Active Specs Display -->
+            <div class="product-active-details">
+              <h4 class="product-detail-title">AETHER HYPERDRIVE CORE</h4>
+              <p class="product-detail-desc">
+                Next-generation multi-ring quantum reactor with counter-rotating electromagnetic induction gimbals and a stabilized crystalline singularity chamber for sub-light propulsion.
+              </p>
+              <div class="specs-grid">
+                <div class="spec-box">
+                  <div class="spec-box-name">Qubit Array</div>
+                  <div class="spec-box-val">1,024 Coherent</div>
+                </div>
+                <div class="spec-box">
+                  <div class="spec-box-name">Flux Density</div>
+                  <div class="spec-box-val">48.2 Tesla</div>
+                </div>
+                <div class="spec-box">
+                  <div class="spec-box-name">Containment</div>
+                  <div class="spec-box-val">99.9999%</div>
+                </div>
+                <div class="spec-box">
+                  <div class="spec-box-name">Thermal Output</div>
+                  <div class="spec-box-val">Sub-Zero Kelvin</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3D WebGL Canvas & Floating Interactive HUD -->
+        <div class="showcase-viewport-wrapper">
+          <canvas id="product-canvas"></canvas>
+
+          <div class="viewport-top-badge">
+            <span class="status-dot"></span>
+            <span>RENDER MATRIX // 120 FPS HIGH PRECISION</span>
+          </div>
+
+          <div class="viewport-hint">
+            DRAG TO ROTATE • SCROLL TO ZOOM
+          </div>
+
+          <!-- Studio Control Island -->
+          <div class="viewport-hud-controls">
+            <button class="hud-btn" id="btn-explode-view">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              <span>DECONSTRUCT</span>
+            </button>
+
+            <button class="hud-btn" id="btn-wireframe-toggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg>
+              <span>WIREFRAME</span>
+            </button>
+
+            <div class="hud-separator"></div>
+
+            <!-- Lighting Presets -->
+            <button class="hud-btn hud-preset-btn active" data-preset="cyber" title="Cyber Neon Lighting">
+              <span>CYBER</span>
+            </button>
+            <button class="hud-btn hud-preset-btn" data-preset="studio" title="Obsidian Studio Lighting">
+              <span>STUDIO</span>
+            </button>
+            <button class="hud-btn hud-preset-btn" data-preset="solar" title="Solar Amber Flare">
+              <span>SOLAR</span>
+            </button>
+            <button class="hud-btn hud-preset-btn" data-preset="matrix" title="Matrix Stealth Mode">
+              <span>MATRIX</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         STATISTICS SECTION: 3D Holographic Visualizer & Telemetry
+         ========================================================================== -->
+    <section class="stats-section" id="stats">
+      <div class="section-header">
+        <div class="section-tag">// REAL-TIME TELEMETRY</div>
+        <h2 class="section-title">Exponential Performance</h2>
+        <p class="section-subtitle">
+          Real-time metrics streaming from over 240 active quantum computing super-nodes deployed across terrestrial and orbital infrastructures.
+        </p>
+      </div>
+
+      <div class="stats-grid-container">
+        <!-- 3D Holographic Visualizer Canvas -->
+        <div class="stats-3d-visualizer">
+          <canvas id="stats-canvas"></canvas>
+        </div>
+
+        <!-- 4 Numeric Metric Cards -->
+        <div class="stats-metrics-cards">
+          <div class="metric-stat-card">
+            <div class="stat-counter-value" data-target="99.999" data-decimal="true">
+              0.000<span class="stat-counter-unit">%</span>
+            </div>
+            <div class="stat-counter-title">Neural Coherence</div>
+            <p class="stat-counter-desc">
+              Continuous phase stability maintained across all 1,024 qubits during extreme thermal fluctuations.
+            </p>
+          </div>
+
+          <div class="metric-stat-card">
+            <div class="stat-counter-value" data-target="0.08" data-decimal="true">
+              0.00<span class="stat-counter-unit">ms</span>
+            </div>
+            <div class="stat-counter-title">Synaptic Latency</div>
+            <p class="stat-counter-desc">
+              Direct sub-millisecond feedback loop from sensory input to neural steering actuation.
+            </p>
+          </div>
+
+          <div class="metric-stat-card">
+            <div class="stat-counter-value" data-target="14.8" data-decimal="true">
+              0.0<span class="stat-counter-unit">TFLOPS/W</span>
+            </div>
+            <div class="stat-counter-title">Energy Efficiency</div>
+            <p class="stat-counter-desc">
+              Superconducting optical bus architecture yielding unprecedented compute density per thermal watt.
+            </p>
+          </div>
+
+          <div class="metric-stat-card">
+            <div class="stat-counter-value" data-target="240" data-decimal="false">
+              0<span class="stat-counter-unit">+</span>
+            </div>
+            <div class="stat-counter-title">Global Megawatt Nodes</div>
+            <p class="stat-counter-desc">
+              Synchronized cryogenic data facilities powering global enterprise aerospace telemetry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         TESTIMONIALS SECTION: 3D Horizontal Perspective Carousel
+         ========================================================================== -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="section-header">
+        <div class="section-tag">// EXECUTIVE PERSPECTIVES</div>
+        <h2 class="section-title">Trusted By Visionary Leaders</h2>
+        <p class="section-subtitle">
+          Leading aerospace pioneers, quantum physicists, and automotive titans on building with AETHER Dynamics.
+        </p>
+      </div>
+
+      <div class="testimonials-carousel-wrapper">
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+              <div>
+                <div class="quote-icon">“</div>
+                <p class="testimonial-text">
+                  AETHER's quantum neural lattice allowed us to solve multi-body hypersonic aerodynamic turbulence equations in real time. It represents the single greatest leap forward in aerospace engineering since computational fluid dynamics.
+                </p>
+              </div>
+              <div class="testimonial-author-row">
+                <div class="author-avatar-frame">ER</div>
+                <div class="author-meta">
+                  <span class="author-name">Dr. Elena Rostova</span>
+                  <span class="author-title">Chief Aerospace Architect</span>
+                  <span class="author-org">INSTITUTE FOR ADVANCED PROPULSION</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+              <div>
+                <div class="quote-icon">“</div>
+                <p class="testimonial-text">
+                  The aesthetic refinement is matched only by surgical engineering precision. In our hyper-mobility prototypes, the 0.08ms synaptic reflex kernel eliminated latency entirely between human intention and vehicle response.
+                </p>
+              </div>
+              <div class="testimonial-author-row">
+                <div class="author-avatar-frame">MV</div>
+                <div class="author-meta">
+                  <span class="author-name">Marcus Vance</span>
+                  <span class="author-title">Head of Advanced Dynamics</span>
+                  <span class="author-org">APEX AUTOMOTIVE LABS</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+              <div>
+                <div class="quote-icon">“</div>
+                <p class="testimonial-text">
+                  We benchmarked against conventional silicon supercomputing clusters. AETHER achieved in 45 milliseconds what previously required seven days of cluster compute. It is truly in a category of its own.
+                </p>
+              </div>
+              <div class="testimonial-author-row">
+                <div class="author-avatar-frame">VT</div>
+                <div class="author-meta">
+                  <span class="author-name">Lady Vivienne Thorne</span>
+                  <span class="author-title">Managing Director</span>
+                  <span class="author-org">ELYSIUM QUANTUM CAPITAL</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 4 -->
+            <div class="testimonial-card">
+              <div>
+                <div class="quote-icon">“</div>
+                <p class="testimonial-text">
+                  The photonic optical bus design is pure poetry. Zero thermal throttling under sustained terawatt workloads. AETHER has redefined the horizon of what high-technology luxury means.
+                </p>
+              </div>
+              <div class="testimonial-author-row">
+                <div class="author-avatar-frame">HT</div>
+                <div class="author-meta">
+                  <span class="author-name">Hiroshi Takahashi</span>
+                  <span class="author-title">Principal Systems Director</span>
+                  <span class="author-org">NEURALIS TOKYO TECH</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls: Prev, Next & Dots -->
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carousel-prev" aria-label="Previous Testimonial">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-dots"></div>
+          <button class="carousel-btn" id="carousel-next" aria-label="Next Testimonial">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CALL TO ACTION BANNER
+         ========================================================================== -->
+    <section class="cta-banner-section">
+      <div class="cta-banner-card">
+        <div class="section-tag">// DEPLOYMENT INITIALIZATION</div>
+        <h2 class="section-title">Ready To Command The Next Era?</h2>
+        <p class="section-subtitle" style="max-width: 650px; margin: 0 auto 2.5rem;">
+          Schedule a private technical briefing at our Geneva Quantum Pavilion or request privileged integration access for your aerospace program.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+          <button class="btn-primary" onclick="alert('Access Request Logged. Quantum encryption key dispatched to secure channel.');">
+            <span>Request Tier-1 Access</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-secondary" onclick="alert('White Paper: AETHER-Q88-REV4 downloaded to terminal.');">
+            <span>Download White Paper</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div>
+        <div class="brand-text">
+          AETHER <span class="brand-badge">GENESIS</span>
+        </div>
+        <p class="footer-brand-desc">
+          Autonomous quantum neural systems, high-altitude aerospace propulsion, and bespoke cybernetic luxury hardware designed for the year 2050 and beyond.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-heading">Architecture</div>
+        <ul class="footer-links-list">
+          <li><a href="#features" class="footer-link">Quantum Mesh</a></li>
+          <li><a href="#features" class="footer-link">Laminar Metamaterials</a></li>
+          <li><a href="#features" class="footer-link">Photonic Lattice</a></li>
+          <li><a href="#features" class="footer-link">Synapse Microkernel</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-heading">Artifacts</div>
+        <ul class="footer-links-list">
+          <li><a href="#showcase" class="footer-link">SYS-Q88 Core</a></li>
+          <li><a href="#showcase" class="footer-link">SYN-N04 Visor</a></li>
+          <li><a href="#showcase" class="footer-link">AERO-X9 Chassis</a></li>
+          <li><a href="#stats" class="footer-link">Telemetry Matrix</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-heading">Intelligence Dispatch</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 0.5rem;">
+          Subscribe to our classified technical white papers and quantum milestone bulletins.
+        </p>
+        <form class="footer-newsletter-input-group" onsubmit="event.preventDefault(); alert('Subscribed to AETHER Intelligence Stream.');">
+          <input type="email" class="footer-input" placeholder="executive@enterprise.com" required>
+          <button type="submit" class="btn-primary" style="padding: 0.8rem 1.4rem;">
+            <span>JOIN</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        &copy; 2026 AETHER DYNAMICS CORP. ALL RIGHTS RESERVED. CONFIDENTIAL & PROPRIETARY.
+      </div>
+      <div style="display: flex; gap: 2rem;">
+        <span style="color: var(--accent-cyan);">SECURITY: ISO-27001 / TOPOLOGICAL-DEFENSE</span>
+        <span>LATENCY: 12ms TO PRIMARY MATRIX</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic Modules -->
+  <script src="js/audio-fx.js"></script>
+  <script src="js/hero-scene.js"></script>
+  <script src="js/product-scene.js"></script>
+  <script src="js/stats-scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
